@@ -6,10 +6,11 @@ const iconFiles = iconSizes.map(
   (size) => `/assets/images/icons/icon-${size}x${size}.png`
 );
 
-const staticFilesToPreCache = [
+const FilesToCache = [
   "/",
-  "/app.js",
-  "/favicon.ico",
+  "db.js",
+  "/index.html",
+  "/index.js",
   "/manifest.webmanifest",
 ].concat(iconFiles);
 
