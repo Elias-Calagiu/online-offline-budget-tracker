@@ -1,6 +1,3 @@
-const { error } = require("console");
-const { response } = require("express");
-
 const CACHE_NAME = "static-cache-v3";
 const DATA_CACHE_NAME = "data-cache-v2";
 const FILES_TO_CACHE = [
@@ -52,7 +49,7 @@ self.addEventListener('activate', (event) => {
     if (event.request.url.includes("/api/")) {
       event.respondWith(
         caches
-        ,open(DATA_CACHE_NAME)
+        .open(DATA_CACHE_NAME)
         .then(cache => {
             return fetch(event.request)
             .then(response => {
