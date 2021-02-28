@@ -10,3 +10,16 @@ const FILES_TO_CACHE = [
   "/icons/icon-512x512.png",
   "/icons/icon-192x192.png"
 ];
+
+// install
+self.addEventListener('install', (event) => {
+  event.waitUntil(
+    caches
+      .open(CACHE_NAME)
+      .then((cache) =>{
+          console.log("Your files were pre-cached successfully");
+          return cache.addAll(FILES_TO_CACHE)
+      })
+  );
+  self.skipWaiting()
+});
